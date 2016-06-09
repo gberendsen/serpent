@@ -9,9 +9,7 @@ public class Database {
 
     private Connection connection = null;
     private Statement statement = null;
-    private String sql = null;
-    private ResultSet resultSet = null;
-
+    private ResultSet results = null;
 
     public Database(){
         connect();
@@ -41,6 +39,70 @@ public class Database {
         //TODO: log success
     }
 
+    private void create(String sql){
+        try{
+            statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            statement.close();
+        }
+        catch(Exception e){
+            System.out.println(e.getClass().getName() + ": " + e.getMessage());
+            //TODO: log error
+        }
+        //TODO: log success
+    }
 
+    private void insert(String sql){
+        try{
+            statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            statement.close();
+        }
+        catch(Exception e){
+            System.out.println(e.getClass().getName() + ": " + e.getMessage());
+            //TODO: log error
+        }
+        //TODO: log success
+    }
 
+    private void select(String sql){
+        try{
+            statement = connection.createStatement();
+            results = statement.executeQuery(sql);
+            //TODO: figure out a way to return the results
+            results.close();
+            statement.close();
+        }
+        catch(Exception e){
+            System.out.println(e.getClass().getName() + ": " + e.getMessage());
+            //TODO: log error
+        }
+        //TODO: log success
+    }
+
+    private void update(String sql){
+        try{
+            statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            statement.close();
+        }
+        catch(Exception e){
+            System.out.println(e.getClass().getName() + ": " + e.getMessage());
+            //TODO: log error
+        }
+        //TODO: log success
+    }
+
+    private void delete(String sql){
+        try{
+            statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            statement.close();
+        }
+        catch(Exception e){
+            System.out.println(e.getClass().getName() + ": " + e.getMessage());
+            //TODO: log error
+        }
+        //TODO: log success
+    }
 }
